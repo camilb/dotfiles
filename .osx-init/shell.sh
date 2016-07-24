@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-RUBY_VERSION="2.2.2"
+RUBY_VERSION="2.3.1"
 
 set -e
 
@@ -18,6 +18,12 @@ fi
 rbenv global ${RUBY_VERSION}
 rbenv rehash
 
+#docker completion
+cd /usr/local/etc/bash_completion.d
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+
 sudo dscl . append /Groups/wheel GroupMembership ${USER}
 # sed -i '' -e '/^%admin/s/^/# /g'
 sudo sed -i '' -e '/# %wheel	ALL=(ALL) NOPASSWD: ALL/s/^# //g' /etc/sudoers
@@ -26,7 +32,6 @@ brew install bash \
   bash-completion \
   brew-cask \
   docker \
-  docker-machine \
   go \
   media-info \
   ssh-copy-id \

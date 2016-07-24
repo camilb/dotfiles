@@ -44,7 +44,17 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/camil/google-cloud-sdk/path.bash.inc'
+source /Users/$(whoami)/google-cloud-sdk/path.bash.inc
 
 # The next line enables shell command completion for gcloud.
-source '/Users/camil/google-cloud-sdk/completion.bash.inc'
+source /Users/$(whoami)/google-cloud-sdk/completion.bash.inc
+
+#kubectl completion
+source $(brew --prefix)/etc/bash_completion
+source <(kubectl completion bash)
+
+#dynamic k8s cluster name in bash prompt
+PROMPT_COMMAND=prompter
+
+#aws completion
+complete -C '/usr/local/aws/bin/aws_completer' aws

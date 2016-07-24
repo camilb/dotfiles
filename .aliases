@@ -63,7 +63,7 @@ fi
 alias l="ls -lF ${colorflag}"
 
 # List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
+alias ll="ls -laFh ${colorflag}"
 
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
@@ -138,3 +138,22 @@ alias mv='mv -i'
 
 # untar
 alias untar='tar xvf'
+
+#change aws account
+alias aws-prod='export AWS_DEFAULT_PROFILE="prod"'
+
+alias aws-staging='export AWS_DEFAULT_PROFILE="staging"'
+
+#use k8s context
+alias k8s-prod='kubectl config use-context prod'
+
+#k8s
+alias k8s-staging='kubectl config use-context staging'
+
+alias ku='kubectl'
+
+alias pods='kubectl get pods -o wide'
+
+alias allpods='kubectl get pods --all-namespaces=true -o wide'
+
+alias kpods='kubectl get pods --namespace=kube-system -o wide'
