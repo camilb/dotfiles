@@ -150,6 +150,10 @@ alias k8s-prod='kubectl config use-context prod'
 #k8s
 alias k8s-staging='kubectl config use-context staging'
 
+alias k8s-net='kubectl config use-context netrics'
+
+alias k8s-net-dev='kubectl config use-context netrics-dev'
+
 alias ku='kubectl'
 
 alias pods='kubectl get pods -o wide'
