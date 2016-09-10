@@ -46,21 +46,3 @@ dm() {
 	docker-machine $@
 	return $?
 }
-
-cubiform() {
-	if [[ "$DOCKER_MACHINE_NAME" == "" ]]; then
-		echo "Could not find a docker machine name"
-		echo "Maybe you need to 'dm ev' it ;)"
-		return 1
-	fi
-	local socket="/tmp/ssh-$(uuidgen)-agent"
-	local host="docker@$(docker-machine ip ${DOCKER_MACHINE_NAME})"
-	ssh -i ${DOCKER_CERT_PATH}/id_rsa -A -M -S $socket -f $host tail -f /dev/null
-	local host_ssh_auth_sock=$(ssh -S $socket $host env | grep "SSH_AUTH_SOCK" | cut -f 2 -d =)
-	docker run -it --rm -v ${host_ssh_auth_sock}:/tmp/ssh-agent \
-	  -v ${HOME}:${HOME} \
-		-e "SSH_AUTH_SOCK=/tmp/ssh-agent" \
-		-e "HOME=${HOME}" \
-		cubiform/toolbox bash -c "cd $(pwd) ; bash $@"
-	ssh -S $socket -O exit $host
-}

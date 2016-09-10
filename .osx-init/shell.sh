@@ -36,6 +36,14 @@ brew install bash \
   media-info \
   ssh-copy-id \
   tree \
+  jq \
+  cli53 \
+  glide \
+  terraform \
+  vault \
+  you-get \
+  watch \
+  git-size \
   unrar \
   wget
 

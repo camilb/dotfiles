@@ -3,29 +3,41 @@
 brew cask install \
  1password \
  knox \
+ keepassx \
+ keybase \
  infinit \
  atom \
+ viasual-studio-code \
  dropbox \
+ google-drive \
  transmit \
  google-chrome \
+ vivaldi \
+ soundcleod \
  flux \
  iterm2 \
- mplayerx \
+ hyperterm \
+ subnetcalc \
+ teamviewer \
+ transmission \
  unetbootin \
  little-snitch \
- sourcetree \
  github-desktop \
  gpgtools \
- dockertoolbox \
+ docker \
+ kube-cluster \
+ minikube \
  vmware-fusion \
  kaleidoscope \
  keepingyouawake \
  paw \
- screenhero \
  sequel-pro \
  slack \
+ hipchat \
+ skype \
+ whatsapp \
  spectacle \
- sublime-text3 \
  virtualbox \
  viscosity \
- vlc
+ vlc \
+ google-nik-collection \
