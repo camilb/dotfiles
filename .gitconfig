@@ -141,8 +141,8 @@
 	name = Camil Blanaru
 	email = camil@edka.io
 
-# [remote "origin"]
-# 	fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
+[remote "origin"]
+fetch = +refs/pull/*/head:refs/pull/origin/*
 
 [github]
 	user = camilb
@@ -152,7 +152,7 @@
 	required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

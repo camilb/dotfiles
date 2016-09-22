@@ -28,25 +28,6 @@ sudo dscl . append /Groups/wheel GroupMembership ${USER}
 # sed -i '' -e '/^%admin/s/^/# /g'
 sudo sed -i '' -e '/# %wheel	ALL=(ALL) NOPASSWD: ALL/s/^# //g' /etc/sudoers
 
-brew install bash \
-  bash-completion \
-  brew-cask \
-  docker \
-  go \
-  media-info \
-  ssh-copy-id \
-  tree \
-  jq \
-  cli53 \
-  glide \
-  terraform \
-  vault \
-  you-get \
-  watch \
-  git-size \
-  unrar \
-  wget
-
 #
 # sudo bash -c 'echo $(which bash) >> /etc/shells'
 # chsh -s $(which bash)
