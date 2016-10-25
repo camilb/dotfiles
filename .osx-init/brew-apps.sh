@@ -5,6 +5,7 @@
     brew-cask \
     docker \
     go \
+    go-delve/delve/delve \
     media-info \
     ssh-copy-id \
     openssl \
