@@ -148,7 +148,7 @@ vpnOn() {
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
 
-#get k8s nodes external IP
+#get k8s nodes external IPs
 
 node-ip(){
 	kubectl get node $1 -o json | jq -r '.status.addresses[] | select(.type == "ExternalIP") | .address'
@@ -158,6 +158,14 @@ nodes-ip(){
 for each in $(kubectl get nodes --no-headers=true | cut -d " " -f1);
   do
   echo "Node" $each "has this External IP:"  ${yellow}$(kubectl get node $each -o json | jq -r '.status.addresses[] | select(.type == "ExternalIP") | .address')
+	tput sgr0
+done
+}
+#get k8s nodes aws zone
+nodes-zone(){
+for each in $(kubectl get nodes --no-headers=true | cut -d " " -f1);
+  do
+  echo "Node" $each "is located in:"  ${yellow}$(kubectl get node $each -o json | jq -r '.metadata.labels."failure-domain.beta.kubernetes.io/zone"')
 	tput sgr0
 done
 }
