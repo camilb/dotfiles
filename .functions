@@ -363,3 +363,50 @@ xname(){
 		-e "/^_NET_WM_NAME\(UTF8_STRING\) = ($match_qstring)$/{s//title=\1/; h}" \
 		-e '${g; p}'
 }
+
+#dump a kubernetes cluster to json
+#Ex usage: "kdump -e default -o staging" will export the cluster state to "./staging.json" excluding the "kube-system" and "default" namespaces.
+
+kdumpusage() { echo "Usage: $0 [-e namespace  to exclude from backups] [-o name]" 1>&2; }
+
+function kdump () {
+	while getopts ":e:o:" i; do
+	    case "${i}" in
+	        e)
+	            e=${OPTARG}
+	            ;;
+	        o)
+	            o=${OPTARG}
+	            ;;
+	        *)
+	            kdumpusage
+	            ;;
+	    esac
+	done
+	shift $((OPTIND-1))
+
+	if [ -z "${e}" ] || [ -z "${o}" ]; then
+	    kdumpusage
+	fi
+
+	for ns in $(kubectl get ns --no-headers | cut -d " " -f1); do
+	  if { [ "$ns" != "kube-system" ]; }; then
+	  kubectl --namespace="${ns}" get --export -o=json svc,rc,rs,deployments,cm,secrets,ds,petsets | \
+	jq '.items[] |
+	    select(.type!="kubernetes.io/service-account-token") |
+	    del(
+	        .spec.clusterIP,
+	        .metadata.uid,
+	        .metadata.selfLink,
+	        .metadata.resourceVersion,
+	        .metadata.creationTimestamp,
+	        .metadata.generation,
+	        .status,
+	        .spec.template.spec.securityContext,
+	        .spec.template.spec.dnsPolicy,
+	        .spec.template.spec.terminationGracePeriodSeconds,
+	        .spec.template.spec.restartPolicy
+	    )' >> "./$o.json"
+	  fi
+	done
+}

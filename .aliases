@@ -140,7 +140,7 @@ alias mv='mv -i'
 alias untar='tar xvf'
 
 #change aws account
-alias aws-prod='export AWS_DEFAULT_PROFILE=$1'
+alias aws-prod='export AWS_DEFAULT_PROFILE=prod'
 
 alias aws-staging='export AWS_DEFAULT_PROFILE="staging"'
 
