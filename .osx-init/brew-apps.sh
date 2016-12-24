@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
   brew install bash \
+    homebrew/completions/brew-cask-completion \
     bash-completion \
-    brew-cask \
+    cask \
     docker \
     go \
     go-delve/delve/delve \
@@ -13,11 +14,11 @@
     jq \
     cli53 \
     glide \
+    awscli \
     ansible \
     terraform \
     vault \
     you-get \
     watch \
-    git-size \
     unrar \
     wget
