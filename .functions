@@ -318,6 +318,17 @@ gostatic(){
 	)
 }
 
+#http://unix.stackexchange.com/questions/269077/tput-setaf-color-table-how-to-determine-color-codes
+fromhex(){
+    hex=${1#"#"}
+    r=$(printf '0x%0.2s' "$hex")
+    g=$(printf '0x%0.2s' ${hex#??})
+    b=$(printf '0x%0.2s' ${hex#????})
+    printf '%03d' "$(( (r<75?0:(r-35)/40)*6*6 +
+                       (g<75?0:(g-35)/40)*6   +
+                       (b<75?0:(b-35)/40)     + 16 ))"
+}
+
 # go to a folder easily in your gopath
 gogo(){
 	local d=$1
@@ -391,7 +402,7 @@ function kdump () {
 
 	for ns in $(kubectl get ns --no-headers | cut -d " " -f1); do
 	  if { [ "$ns" != "kube-system" ]; }; then
-	  kubectl --namespace="${ns}" get --export -o=json svc,rc,rs,deployments,cm,secrets,ds,petsets | \
+	  kubectl --namespace="${ns}" get --export -o=json svc,rc,rs,deployments,cm,secrets,ds,statefulsets, ing | \
 	jq '.items[] |
 	    select(.type!="kubernetes.io/service-account-token") |
 	    del(
