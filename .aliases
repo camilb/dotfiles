@@ -146,6 +146,7 @@ alias aws-staging='export AWS_DEFAULT_PROFILE="staging"'
 
 alias aws-netrics='export AWS_DEFAULT_PROFILE="netrics"'
 
+alias aws-personal='export AWS_DEFAULT_PROFILE="personal"'
 #switch k8s cluster
 
 alias kluster='kubectl config use-context $1'
