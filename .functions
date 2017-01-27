@@ -402,7 +402,7 @@ function kdump () {
 
 	for ns in $(kubectl get ns --no-headers | cut -d " " -f1); do
 	  if { [ "$ns" != "kube-system" ]; }; then
-	  kubectl --namespace="${ns}" get --export -o=json svc,rc,rs,deployments,cm,secrets,ds,statefulsets, ing | \
+	  kubectl --namespace="${ns}" get --export -o=json svc,rc,rs,deployments,cm,secrets,ds,statefulsets,ing,pv,pvc | \
 	jq '.items[] |
 	    select(.type!="kubernetes.io/service-account-token") |
 	    del(
