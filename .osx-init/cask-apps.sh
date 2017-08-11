@@ -5,7 +5,6 @@ brew cask install \
  knox \
  keepassx \
  keybase \
- infinit \
  atom \
  viasual-studio-code \
  dropbox \
@@ -14,7 +13,6 @@ brew cask install \
  google-chrome \
  vivaldi \
  soundcleod \
- flux \
  iterm2 \
  hyperterm \
  subnetcalc \
@@ -24,8 +22,6 @@ brew cask install \
  little-snitch \
  github-desktop \
  gpgtools \
- docker \
- kube-cluster \
  minikube \
  vmware-fusion \
  kaleidoscope \
@@ -33,11 +29,9 @@ brew cask install \
  paw \
  sequel-pro \
  slack \
- hipchat \
  skype \
  whatsapp \
- spectacle \
  virtualbox \
  viscosity \
  vlc \
- google-nik-collection \
+ google-nik-collection
