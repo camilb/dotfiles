@@ -23,7 +23,6 @@ brew cask install \
  github-desktop \
  gpgtools \
  minikube \
- vmware-fusion \
  kaleidoscope \
  keepingyouawake \
  paw \
