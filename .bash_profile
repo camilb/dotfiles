@@ -64,3 +64,4 @@ export SDKMAN_DIR="~/.sdkman"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="$PATH:/Users/camil/Projects/istio-0.2.6/bin"

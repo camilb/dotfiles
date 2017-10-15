@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-RUBY_VERSION="2.3.1"
+RUBY_VERSION="2.4.2"
 
 set -e
 
-if ! hash ffmpeg 2> /dev/null; then
-  brew install ffmpeg --with-faac --with-fdk-aac
-fi
 
 if ! hash rbenv 2> /dev/null; then
   brew install rbenv ruby-build

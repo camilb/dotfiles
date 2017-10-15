@@ -421,3 +421,32 @@ function kdump () {
 	  fi
 	done
 }
+
+#export aws profile
+aws-profile() {
+    export AWS_DEFAULT_PROFILE="$1"
+}
+
+
+export-aws-profile() {
+
+	[[ -z "$1" ]] || profile="$1"
+
+	credentials=$(grep -A 2 "$profile" ~/.aws/credentials | grep -v "$profile")
+
+	if [[ "$credentials" == "" ]]; then
+			echo "Error: profile '$profile' not found in ~/.aws/credentials" >&2
+			exit 1
+	fi
+
+	echo "Exporting profile: $profile" >&2
+	for key in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY; do
+			val=$(echo "$credentials" | grep -i $key | awk -F '=' '{print $2}')
+			if [[ "$val" == "" ]]; then
+					echo " Error: missing $key" >&2
+					exit 1
+			fi
+			echo "export $key='$val'"
+	done
+
+}

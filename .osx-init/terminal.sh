@@ -15,7 +15,7 @@ tell application "Terminal"
 	local allOpenedWindows
 	local initialOpenedWindows
 	local windowID
-	set themeName to "Solarized Dark xterm-256color"
+	set themeName to "material-theme"
 
 	(* Store the IDs of all the open terminal windows. *)
 	set initialOpenedWindows to id of every window
@@ -59,8 +59,8 @@ EOD
 #defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
 
-# Install the Solarized Dark theme for iTerm
-open "${HOME}/.osx-init/Solarized Dark.itermcolors"
+# Install the Material theme for iTerm
+open "${HOME}/.osx-init/Material.itermcolors"
 
 # Install the Pastel theme for iTerm
 open "${HOME}/.osx-init/Pastel.itermcolors"

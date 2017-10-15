@@ -139,14 +139,6 @@ alias mv='mv -i'
 # untar
 alias untar='tar xvf'
 
-#change aws account
-alias aws-prod='export AWS_DEFAULT_PROFILE=prod'
-
-alias aws-staging='export AWS_DEFAULT_PROFILE="staging"'
-
-alias aws-netrics='export AWS_DEFAULT_PROFILE="netrics"'
-
-alias aws-personal='export AWS_DEFAULT_PROFILE="personal"'
 #switch k8s cluster
 
 alias kluster='kubectl config use-context $1'
@@ -161,6 +153,10 @@ alias nodes='kubectl get nodes -o wide'
 alias allpods='kubectl get pods --all-namespaces=true -o wide'
 
 alias kpods='kubectl get pods --namespace=kube-system -o wide'
+
+alias deployments='kubectl get deployments -o wide'
+
+alias services='kubectl get services -o wide'
 
 #What is my IP
 alias wip='curl http://ip.mtak.nl'
