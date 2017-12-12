@@ -159,4 +159,5 @@ alias deployments='kubectl get deployments -o wide'
 alias services='kubectl get services -o wide'
 
 #What is my IP
-alias wip='curl http://ip.mtak.nl'
+# alias wip='curl http://ip.mtak.nl'
+alias wip='dig +short myip.opendns.com @resolver1.opendns.com'
