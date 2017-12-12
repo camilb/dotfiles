@@ -21,4 +21,5 @@
     you-get \
     watch \
     unrar \
+    swaks \
     wget
