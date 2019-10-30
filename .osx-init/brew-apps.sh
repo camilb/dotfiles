@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 
   brew install bash \
-    homebrew/completions/brew-cask-completion \
+    brew-cask-completion \
     bash-completion \
     cask \
     docker \
     go \
-    go-delve/delve/delve \
-    media-info \
+    nvm \
     ssh-copy-id \
     openssl \
-    tree \
+    postgresql \
     jq \
+    tree \
     cli53 \
     glide \
     awscli \
     ansible \
     terraform \
+    warrensbox/tap/tfswitch \
     vault \
     you-get \
     watch \
-    unrar \
     swaks \
+    minikube \
     wget

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-RUBY_VERSION="2.4.2"
+RUBY_VERSION="2.4.9"
 
 set -e
 

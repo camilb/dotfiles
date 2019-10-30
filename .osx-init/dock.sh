@@ -19,11 +19,7 @@ defaults write com.apple.dock persistent-apps -array
 
 add_app "/Applications/iTerm.app"
 add_app "/Applications/Google Chrome.app"
-add_app "/Applications/Safari.app"
-add_app "/Applications/Mail.app"
 add_app "/Applications/Slack.app"
-add_app "/Applications/Atom.app"
-add_app "/Applications/Sequel Pro.app"
 add_app "/Applications/GitHub Desktop.app"
-
+add_app "/Applications/Spark.app"
 killall Dock

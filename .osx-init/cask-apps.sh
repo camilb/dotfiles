@@ -1,20 +1,13 @@
 #!/usr/bin/env bash
 
-brew cask install \
+brew cask install --appdir="/Applications" \
  1password \
- knox \
- keepassx \
  keybase \
- atom \
- viasual-studio-code \
+ visual-studio-code \
  dropbox \
- google-drive \
- transmit \
  google-chrome \
- vivaldi \
  soundcleod \
  iterm2 \
- hyperterm \
  subnetcalc \
  teamviewer \
  transmission \
@@ -24,13 +17,10 @@ brew cask install \
  gpgtools \
  minikube \
  kaleidoscope \
- keepingyouawake \
  paw \
- sequel-pro \
  slack \
  skype \
  whatsapp \
- virtualbox \
  viscosity \
  vlc \
  google-nik-collection
